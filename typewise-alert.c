@@ -3,7 +3,7 @@
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
 {
-  unsigned int ReturnVal=NORMAL;	
+  BreachType ReturnVal=NORMAL;	
   if(value < lowerLimit)
   {
     //return TOO_LOW;
@@ -57,7 +57,7 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
   }
   
  // return inferBreach(temperatureInC, lowerLimit, upperLimit);
-  return (temperatureInC<lowerLimit?TOO_LOW:temperatureInC>upperLimit?TOO_HIGH:NORMAL)
+  return (temperatureInC<lowerLimit?TOO_LOW:temperatureInC>upperLimit?TOO_HIGH:NORMAL);
 }
  
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
@@ -89,7 +89,7 @@ void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double
   {
 	  //do nothing
   }
-	  
+
 }
 
 void sendToController(BreachType breachType) 
@@ -122,16 +122,14 @@ void sendToEmail(BreachType breachType)
   {
 	  printf("To: %s\n", recepient);
       printf("Hi, the temperature is too low\n");
-      break;
   }
   else if(breachType==TOO_HIGH)
   {
 	  printf("To: %s\n", recepient);
       printf("Hi, the temperature is too high\n");
-      break;
   }
   else
   {
-	  
   }
+
 }
