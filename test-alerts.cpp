@@ -6,3 +6,9 @@
 TEST_CASE("infers the breach according to limits") {
   REQUIRE(inferBreach(12, 20, 30) == TOO_LOW);
 }
+TEST_CASE("Check and Alert") 
+{
+	BatteryCharacter batteryChar;
+	batteryChar.coolingType=PASSIVE_COOLING;
+  checkAndAlert(TO_CONTROLLER,batteryChar,30);
+}
